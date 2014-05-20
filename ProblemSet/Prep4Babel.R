@@ -13,6 +13,7 @@ system("babel T3DB_4_Babel.smi -O T3DB_4_Babel.sdf --gen2d")
 #where are the missing molecules
 smiset<-read.SMIset("T3DB_4_Babel.smi")
 
+write.table(cid(smiset), file="Names.smi")
 #############################
 smiset<-as(smiset, "SMIset")
 sdfset<-smiles2sdf(smiset)
@@ -22,3 +23,5 @@ sdfset<-smiles2sdf(smiset)
 #apset<-sdf2ap(sdfset)
 #sdfset<-sdfset[-which(sapply(as(apset, "list"), length)==1)]
 ###########################
+
+write.table(cid(sdfset), file="Names.sdf.txt")
